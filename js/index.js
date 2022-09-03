@@ -116,6 +116,8 @@ const displaymodalCard = (cards) => {
             <p>Realease Date: ${cards.author.published_date ? cards.author.published_date : "No date Found"}</p>
             <p>Details : ${cards.details ? cards.details : "No data found"}</p>
             <p>Total View : ${cards.total_view ? cards.total_view : "0"} M</p>
+            <p>Rating: ${cards.rating.badge ? cards.rating.badge : "No rating"} </p>
+            <p>Rating Number: ${cards.rating.number ? cards.rating.number : "No rating"} </p>
             
     `
 
