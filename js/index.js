@@ -1,8 +1,12 @@
+document.getElementById("error-message").style.display = "none";
 document.getElementById('loader-spinner').style.display = "none";
 const loadCatagoris = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
         .then(catagoris => displayCatagoris(catagoris))
+        .catch((error) => {
+            document.getElementById("error-message").style.display = "block";
+        });
 }
 
 const displayCatagoris = (catagoris) => {
