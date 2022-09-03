@@ -1,3 +1,4 @@
+document.getElementById('loader-spinner').style.display = "none";
 const loadCatagoris = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
@@ -45,6 +46,7 @@ const displayCatagoris = (catagoris) => {
 
 const loadcard = (categoryId) => {
     // console.log(category_id)
+    document.getElementById('loader-spinner').style.display = "block";
     fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
         .then(res => res.json())
         .then(cards => displayCard(cards.data))
@@ -67,7 +69,7 @@ const displayCard = (cards) => {
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">Title : ${card.title}</h5>
+                                    <h3 class="card-title">Title : ${card.title}</h3>
                                     <p class="card-text ">Details : ${card.details.slice(0, 300)}...</p>
                                     <div class="d-flex justify-content-between align-items-center py-4">
                                         <div class="d-flex justify-content-between align-items-center">
@@ -80,7 +82,7 @@ const displayCard = (cards) => {
                                         <a href="#"><i class="fa-regular fa-eye"></i></a>
                                             <h5 class="px-3">${card.total_view ? card.total_view : '0'}M</h5>
                                         </div>
-                                        <button class="btn btn-primary" onclick="loadModalDetails('${card._id}')">Details</button>
+                                        <button class="btn btn-primary" onclick="loadModalDetails('${card._id}')"  data-bs-toggle="modal" data-bs-target="#newsDetails">Details</button>
                                     </div>
                                 </>
                             </div>
@@ -89,6 +91,8 @@ const displayCard = (cards) => {
         `;
         displayCardContainer.appendChild(cardDiv);
     });
+    document.getElementById('loader-spinner').style.display = "none";
+
 }
 
 const loadModalDetails = (newId) => {
@@ -99,6 +103,17 @@ const loadModalDetails = (newId) => {
 
 const displaymodalCard = (cards) => {
     console.log(cards)
+    const modalTitle = document.getElementById('newsDetailsLabel')
+    modalTitle.innerText = cards.title
+    const newsDetails = document.getElementById('news-details');
+    newsDetails.innerHTML = `
+            <h4>Author name : ${cards.author.name ? cards.author.name : "No name Found"}</h4>
+            <p>Realease Date: ${cards.author.published_date ? cards.author.published_date : "No date Found"}</p>
+            <p>Details : ${cards.details ? cards.details : "No data found"}</p>
+            <p>Total View : ${cards.total_view ? cards.total_view : "00"} M</p>
+            
+    `
+
 
 
 }
