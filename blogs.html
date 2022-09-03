@@ -44,62 +44,36 @@
             </nav>
             <hr>
             <!-- news menu section  -->
-
-            <div id="catagori-container">
-
-            </div>
-
+            <ul class="list-group ">
+                <li class="list-group-item text-primary fs-3">1.Difference between var let and const?</li>
+                <li class="list-group-item">Var: Global scoped or function scoped. The scope of the var keyword is the
+                    global or function scope. It means variables defined outside the function can be accessed globally,
+                    and variables defined inside a particular function can be accessed within the function. <br>
+                    Let: The scope of a let variable is only block scoped. It can’t be accessible outside the particular
+                    block ({block}). <br>
+                    Const: When users declare a const variable, they need to initialize it, otherwise, it returns an
+                    error. The user cannot update the const variable once it is declared.
+                </li>
+            </ul>
+            <ul class="list-group ">
+                <li class="list-group-item text-primary fs-3">2.Difference between arrow function and normal function?
+                </li>
+                <li class="list-group-item">Arrow function — also called fat arrow function— is a new feature introduced
+                    in ES6 that is a more concise syntax for writing function expressions. While both regular JavaScript
+                    functions and arrow functions work in a similar manner, there are certain differences between them.
+                </li>
+            </ul>
+            <ul class="list-group ">
+                <li class="list-group-item text-primary fs-3">3. why you use template string in javascript</li>
+                <li class="list-group-item">Template strings are a powerful feature of modern JavaScript released in
+                    ES6. It lets us insert/interpolate variables and expressions into strings without needing to
+                    concatenate like in older versions of JavaScript. It allows us to create strings that are complex
+                    and contain dynamic elements.</li>
+            </ul>
 
 
         </header>
-        <main>
-            <section class="mx-4 py-4">
-                <div>
-                    <h2>Found Item = <span id="show-count-card">0</span> </h2>
-                </div>
-            </section>
-            <!-- display section -->
-            <section id="displayCard">
 
-            </section>
-            <section>
-                <!-- loader part -->
-                <div id="loader-spinner" class="text-center">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-                <!-- loader part end -->
-
-
-
-                <!-- modal part -->
-                <!-- Button trigger modal -->
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetails">
-                    Launch demo modal
-                </button> -->
-
-                <!-- Modal -->
-                <div class="modal fade" id="newsDetails" tabindex="-1" aria-labelledby="newsDetailsLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="newsDetailsLabel"></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div id="news-details" class="modal-body">
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
 
 
 
