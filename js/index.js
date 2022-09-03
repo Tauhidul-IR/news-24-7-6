@@ -6,11 +6,8 @@ const loadCatagoris = () => {
 }
 
 const displayCatagoris = (catagoris) => {
-    // console.log(catagoris.data.news_category[0].category_name)
-    // console.log(catagoris)
     const { data } = catagoris;
     const { news_category } = data;
-    // console.log(news_category[0].category_name)category_id
 
     const catagoriContainer = document.getElementById('catagori-container');
     catagoriContainer.innerHTML = `
@@ -45,7 +42,6 @@ const displayCatagoris = (catagoris) => {
 }
 
 const loadcard = (categoryId) => {
-    // console.log(category_id)
     document.getElementById('loader-spinner').style.display = "block";
     fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
         .then(res => res.json())
@@ -53,7 +49,6 @@ const loadcard = (categoryId) => {
 }
 
 const displayCard = (cards) => {
-    // console.log(cards)
     const showCountCard = document.getElementById('show-count-card');
     showCountCard.innerText = cards.length;
     const displayCardContainer = document.getElementById('displayCard');
@@ -110,7 +105,7 @@ const displaymodalCard = (cards) => {
             <h4>Author name : ${cards.author.name ? cards.author.name : "No name Found"}</h4>
             <p>Realease Date: ${cards.author.published_date ? cards.author.published_date : "No date Found"}</p>
             <p>Details : ${cards.details ? cards.details : "No data found"}</p>
-            <p>Total View : ${cards.total_view ? cards.total_view : "00"} M</p>
+            <p>Total View : ${cards.total_view ? cards.total_view : "0"} M</p>
             
     `
 
