@@ -74,15 +74,15 @@ const displayCard = (cards) => {
                                 <div class="card-body">
                                     <h3 class="card-title">Title : ${card.title}</h3>
                                     <p class="card-text ">Details : ${card.details.slice(0, 300)}...</p>
-                                    <div class="d-flex justify-content-between align-items-center py-4">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        <div style="height: 40px; width: 40px">
-                                        <img src="${card.author.img ? card.author.img : "no Img"}" class="img-fluid rounded-start" alt="..."></div>
+                                    <div class="d-flex justify-content-between  align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row py-4">
+                                        <div class="d-flex flex-column flex-sm-column justify-content-between  align-items-center">
+                                            <div class="d-flex justify-content-between"  style="height: 40px; width: 40px">
+                                            <img src="${card.author.img ? card.author.img : "no Img"}" class="img-fluid rounded-start" alt="..."></div>
                                         
-                                            <h3 class="px-3">${card.author.name ? card.author.name : 'No name'}</h3>
+                                            <h4 class="px-3">${card.author.name ? card.author.name : 'No name'}</h4>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                        <a href="#"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="#"><i class="fa-regular fa-eye"></i></a>
                                             <h5 class="px-3">${card.total_view ? card.total_view : '0'}M</h5>
                                         </div>
                                         <button class="btn btn-primary" onclick="loadModalDetails('${card._id}')"  data-bs-toggle="modal" data-bs-target="#newsDetails">Details</button>
@@ -107,7 +107,7 @@ const loadModalDetails = (newId) => {
 const displaymodalCard = (cards) => {
     console.log(cards)
     const modalTitle = document.getElementById('newsDetailsLabel')
-    modalTitle.innerText = cards.title
+    modalTitle.innerHTML = `Title :${cards.title}`
     const newsDetails = document.getElementById('news-details');
     newsDetails.innerHTML = `
             <h4>Author name : ${cards.author.name ? cards.author.name : "No name Found"}</h4>
