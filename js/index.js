@@ -55,6 +55,7 @@ const displayCard = (cards) => {
     const showCountCard = document.getElementById('show-count-card');
     showCountCard.innerText = cards.length;
     const displayCardContainer = document.getElementById('displayCard');
+    displayCardContainer.textContent = '';
     cards.forEach(card => {
         console.log(card)
         const cardDiv = document.createElement('div');
@@ -68,16 +69,18 @@ const displayCard = (cards) => {
                                 <div class="card-body">
                                     <h5 class="card-title">Title : ${card.title}</h5>
                                     <p class="card-text ">Details : ${card.details}</p>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex justify-content-between">
-                                            <h2>dsfhhf</h2>
-                                            <h3>sdfdjf</h3>
+                                    <div class="d-flex justify-content-between align-items-center py-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div style="height: 40px; width: 40px">
+                                        <img src="${card.author.img ? card.author.img : "no Img"}" class="img-fluid rounded-start" alt="..."></div>
+                                        
+                                            <h3 class="px-3">${card.author.name ? card.author.name : 'No name'}</h3>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <h4>sdf</h4>
-                                            <h5>dsf</h5>
+                                        <a href="#"><i class="fa-regular fa-eye"></i></a>
+                                            <h5 class="px-3">${card.total_view}M</h5>
                                         </div>
-                                        <button>fdgf</button>
+                                        <button>Details</button>
                                     </div>
                                 </>
                             </div>
