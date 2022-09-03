@@ -1,5 +1,6 @@
 document.getElementById("error-message").style.display = "none";
 document.getElementById('loader-spinner').style.display = "none";
+document.getElementById('show-count').style.display = "none";
 const loadCatagoris = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
@@ -43,10 +44,13 @@ const displayCatagoris = (catagoris) => {
                
             </ul>
     `;
+
 }
 
 const loadcard = (categoryId) => {
     document.getElementById('loader-spinner').style.display = "block";
+    document.getElementById('show-count').style.display = "block";
+
     fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
         .then(res => res.json())
         .then(cards => displayCard(cards.data))
