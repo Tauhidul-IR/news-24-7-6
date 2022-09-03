@@ -51,13 +51,13 @@ const loadcard = (categoryId) => {
 }
 
 const displayCard = (cards) => {
-    console.log(cards)
+    // console.log(cards)
     const showCountCard = document.getElementById('show-count-card');
     showCountCard.innerText = cards.length;
     const displayCardContainer = document.getElementById('displayCard');
     displayCardContainer.textContent = '';
     cards.forEach(card => {
-        console.log(card)
+        // console.log(card)
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
                         <div class="card mb-3">
@@ -68,7 +68,7 @@ const displayCard = (cards) => {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Title : ${card.title}</h5>
-                                    <p class="card-text ">Details : ${card.details}</p>
+                                    <p class="card-text ">Details : ${card.details.slice(0, 300)}...</p>
                                     <div class="d-flex justify-content-between align-items-center py-4">
                                         <div class="d-flex justify-content-between align-items-center">
                                         <div style="height: 40px; width: 40px">
@@ -78,9 +78,9 @@ const displayCard = (cards) => {
                                         </div>
                                         <div class="d-flex justify-content-between">
                                         <a href="#"><i class="fa-regular fa-eye"></i></a>
-                                            <h5 class="px-3">${card.total_view}M</h5>
+                                            <h5 class="px-3">${card.total_view ? card.total_view : '0'}M</h5>
                                         </div>
-                                        <button>Details</button>
+                                        <button class="btn btn-primary" onclick="loadModalDetails('${card._id}')">Details</button>
                                     </div>
                                 </>
                             </div>
@@ -91,6 +91,17 @@ const displayCard = (cards) => {
     });
 }
 
+const loadModalDetails = (newId) => {
+    fetch(`https://openapi.programming-hero.com/api/news/${newId}`)
+        .then(res => res.json())
+        .then(data => displaymodalCard(data.data[0]))
+}
+
+const displaymodalCard = (cards) => {
+    console.log(cards)
+
+
+}
 
 
 loadCatagoris();
