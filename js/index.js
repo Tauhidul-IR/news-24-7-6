@@ -49,14 +49,16 @@ const displayCatagoris = (catagoris) => {
 
 const loadcard = (categoryId) => {
     document.getElementById('loader-spinner').style.display = "block";
-    document.getElementById('show-count').style.display = "block";
 
     fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
         .then(res => res.json())
         .then(cards => displayCard(cards.data))
+
 }
 
 const displayCard = (cards) => {
+    document.getElementById('show-count').style.display = "block";
+
     const showCountCard = document.getElementById('show-count-card');
     showCountCard.innerText = cards.length;
     const displayCardContainer = document.getElementById('displayCard');
@@ -73,9 +75,9 @@ const displayCard = (cards) => {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h3 class="card-title">Title : ${card.title}</h3>
-                                    <p class="card-text ">Details : ${card.details.slice(0, 300)}...</p>
-                                    <div class="d-flex justify-content-between  align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row py-4">
-                                        <div class="d-flex flex-column flex-sm-column justify-content-between  align-items-center">
+                                    <p class="card-text ">Details : ${card.details.slice(0, 400)}...</p>
+                                    <div class="d-flex justify-content-between  align-items-center flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row pt-4">
+                                        <div class="d-flex flex-column flex-sm-row justify-content-between  align-items-center">
                                             <div class="d-flex justify-content-between"  style="height: 40px; width: 40px">
                                             <img src="${card.author.img ? card.author.img : "no Img"}" class="img-fluid rounded-start" alt="..."></div>
                                         
