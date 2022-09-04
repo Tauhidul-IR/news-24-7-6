@@ -112,8 +112,9 @@ const displaymodalCard = (cards) => {
     modalTitle.innerHTML = `Title :${cards.title}`
     const newsDetails = document.getElementById('news-details');
     newsDetails.innerHTML = `
+            <img src="${cards.author.img ? cards.author.img : "no Img"}" class="img-fluid rounded-start" alt="..."></div>
             <h4>Author name : ${cards.author.name ? cards.author.name : "No name Found"}</h4>
-            <p>Realease Date: ${cards.author.published_date ? cards.author.published_date : "No date Found"}</p>
+            <p>published Date: ${cards.author.published_date ? cards.author.published_date : "No date Found"}</p>
             <p>Details : ${cards.details ? cards.details : "No data found"}</p>
             <p>Total View : ${cards.total_view ? cards.total_view : "0"} M</p>
             <p>Rating: ${cards.rating.badge ? cards.rating.badge : "No rating"} </p>
